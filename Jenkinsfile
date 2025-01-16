@@ -1,18 +1,5 @@
 pipeline {
-    agent {
-        kubernetes {
-            yaml """
-apiVersion: v1
-kind: Pod
-metadata:
-  name: alpine-pod
-spec:
-  containers:
-  - name: alpine-container
-    image: alpine:latest
-    imagePullPolicy: Always
-"""
-    }
+    agent any
 
     environment {
         DOCKERTAG = "latest" // Or set this dynamically if needed
