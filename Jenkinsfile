@@ -13,6 +13,8 @@ spec:
     imagePullPolicy: Always
 
 """
+  }
+}
   stages{
     stage('Clone repository') {
       
@@ -40,4 +42,4 @@ spec:
 }
 }
 }
-}
+
