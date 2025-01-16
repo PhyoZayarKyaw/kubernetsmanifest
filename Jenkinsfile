@@ -1,6 +1,19 @@
-node {
-    def app
+pipeline {
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine-pod
+spec:
+  containers:
+  - name: alpine-container
+    image: alpine:latest
+    imagePullPolicy: Always
 
+"""
+  stages{
     stage('Clone repository') {
       
 
@@ -24,5 +37,6 @@ node {
       }
     }
   }
+}
 }
 }
